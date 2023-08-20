@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - backgnd
+  - tile with coll
+  - ENEMY
+  - PLAYER
+  - enemy hit box
+  - player hit box
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: backgnd
+    uniqueID: 2182446025
+    locked: 0
+  - name: no coll back
+    uniqueID: 1988368283
+    locked: 0
+  - name: gnd
+    uniqueID: 3237787435
+    locked: 0
+  - name: player
+    uniqueID: 3165603753
+    locked: 0
