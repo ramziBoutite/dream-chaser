@@ -283,7 +283,7 @@ MonoBehaviour:
   speed: 0
   runspeed: 10.5
   airspeed: 5
-  jump: 20
+  jump: 18
 --- !u!95 &297144147200008371
 Animator:
   serializedVersion: 4

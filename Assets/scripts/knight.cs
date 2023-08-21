@@ -12,6 +12,7 @@ public class knight : MonoBehaviour
     Rigidbody2D rb;
     raycasting raycasting;
     public detection_zone zone;
+    public detection_zone cliff;
     bool _has_target;
     public bool has_target { get { return _has_target; } set { _has_target = value; anim.SetBool("has_target",value); } }
     public bool canmove { get { return anim.GetBool("canmove"); }  }
@@ -53,7 +54,7 @@ public class knight : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(raycasting.isonwall && raycasting.isgnd)
+        if(raycasting.isonwall && raycasting.isgnd )
         {
             Flip();
         }
@@ -94,6 +95,10 @@ public class knight : MonoBehaviour
     public void onhit(int damage, Vector2 knockback)
     {
         rb.velocity = new Vector2(knockback.x * transform.localScale.x *-1, rb.velocity.y + knockback.y + 1);
+    }
+    public void cliff_flip()
+    {
+        Flip();
     }
 }
  

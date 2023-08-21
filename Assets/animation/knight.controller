@@ -115,6 +115,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: has_target
     m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: cooldown
+    m_EventTreshold: 1.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
   m_Solo: 0
@@ -247,7 +250,7 @@ MonoBehaviour:
   updateOnStateMachine: 1
   updateOnState: 0
   valueOnEnter: 0
-  valueOnExit: 1
+  valueOnExit: 2
 --- !u!1102 &-1179256598390225335
 AnimatorState:
   serializedVersion: 6
@@ -448,7 +451,7 @@ AnimatorTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 4
     m_ConditionEvent: cooldown
-    m_EventTreshold: 1
+    m_EventTreshold: 1.5
   m_DstStateMachine: {fileID: -5970305787810080593}
   m_DstState: {fileID: 0}
   m_Solo: 0
@@ -534,10 +537,7 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: has_target
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
   m_Solo: 0
