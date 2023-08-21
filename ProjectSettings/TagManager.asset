@@ -18,7 +18,7 @@ TagManager:
   - enemy hit box
   - player hit box
   - cliff detector
-  - 
+  - ui
   - 
   - 
   - 
@@ -52,4 +52,7 @@ TagManager:
     locked: 0
   - name: player
     uniqueID: 3165603753
+    locked: 0
+  - name: ui
+    uniqueID: 1067608381
     locked: 0
