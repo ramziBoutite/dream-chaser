@@ -278,3 +278,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
+  _is_alive: 1
+  timer: 0.2

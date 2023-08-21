@@ -14,7 +14,12 @@ public class damage : MonoBehaviour
     [SerializeField]
     private float _health = 100;
     public float health { get { return _health; } set { _health = value; if (_health <= 0f) { is_alive = false; } } }
-    private bool _is_alive = true;
+    [SerializeField] private bool _is_alive = true;
+    private bool invincible;
+    private float time;
+    public float timer;
+
+    
     public bool is_alive
     {
         get { return _is_alive; }
@@ -25,7 +30,14 @@ public class damage : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-
+    public void hit(int damage)
+    {
+        if(is_alive && !invincible)
+        {
+            health = health - damage;
+            invincible = true;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +47,15 @@ public class damage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(invincible)
+        {
+            if(time > timer )
+            {
+                invincible = false;
+                    time = 0f;
+            }
+            time += Time.deltaTime;
+        }
+        hit(10);
     }
 }
