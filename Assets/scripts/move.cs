@@ -9,6 +9,7 @@ public class move : MonoBehaviour
 {
     private bool _ismoving = false;
     private bool _isrunning;
+    private damage _damage;
     private Rigidbody2D rb;
     public float walkSpeed = 7f,speed,runspeed = 10.5f,airspeed = 5f;
     Vector2 moveInp;
@@ -36,7 +37,7 @@ public class move : MonoBehaviour
     
     private void Awake()
     {
-        
+        _damage = GetComponent<damage>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         raycasting = GetComponent<raycasting>();
@@ -55,13 +56,17 @@ public class move : MonoBehaviour
     private void FixedUpdate()
     {
         // basic move
-        if (raycasting.isgnd && animator.GetBool("canmove"))
-        { rb.velocity = new Vector2(moveInp.x * speed, rb.velocity.y); }
-        else if (!raycasting.isgnd && !raycasting.isonwall)
-        { rb.velocity = new Vector2(moveInp.x * speed, rb.velocity.y); }
-        else if (!animator.GetBool("canmove"))
-        { rb.velocity = Vector2.zero; }
-        else { rb.velocity = new Vector2(rb.velocity.x , rb.velocity.y); }
+        if(!_damage.is_hit)
+        {
+            if (raycasting.isgnd && animator.GetBool("canmove"))
+            { rb.velocity = new Vector2(moveInp.x * speed, rb.velocity.y); }
+            else if (!raycasting.isgnd && !raycasting.isonwall)
+            { rb.velocity = new Vector2(moveInp.x * speed, rb.velocity.y); }
+            else if (!animator.GetBool("canmove"))
+            { rb.velocity = Vector2.zero; }
+            else { rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y); }
+        }
+        
         //move speed
         if (raycasting.isgnd)
         {
@@ -103,6 +108,7 @@ public class move : MonoBehaviour
     }
     public void onMove(InputAction.CallbackContext context)
     {
+
         moveInp = context.ReadValue<Vector2>();
         ismoving = moveInp != Vector2.zero;
        if (context.canceled)
@@ -137,5 +143,9 @@ public class move : MonoBehaviour
         {
             animator.SetTrigger("gnd_attack");
         }
+    }
+    public void onhit( int damage, Vector2 knockback)
+    {
+        rb.velocity = new Vector2 (knockback.x +1,rb.velocity.y+knockback.y+1);
     }
 }

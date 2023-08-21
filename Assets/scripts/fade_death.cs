@@ -14,7 +14,7 @@ public class fade_death : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        to_remove = animator.GetComponent<GameObject>();
+        to_remove = animator.gameObject;
         spriteRenderer = animator.GetComponent<SpriteRenderer>();
         startcolor = spriteRenderer.color;
     }
