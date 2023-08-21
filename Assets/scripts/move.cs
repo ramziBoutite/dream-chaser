@@ -94,11 +94,11 @@ public class move : MonoBehaviour
 
         //flip
         if (rb.velocity.x == 0f) { }
-        else if (rb.velocity.x < Mathf.Epsilon)
+        else if (moveInp.x < Mathf.Epsilon)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if (rb.velocity.x > 0.1f)
+        else if (moveInp.x > 0.1f)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
@@ -146,6 +146,6 @@ public class move : MonoBehaviour
     }
     public void onhit( int damage, Vector2 knockback)
     {
-        rb.velocity = new Vector2 (knockback.x +1,rb.velocity.y+knockback.y+1);
+        rb.velocity = new Vector2 (knockback.x * transform.localScale.x * -1,rb.velocity.y+knockback.y+1);
     }
 }

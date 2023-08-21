@@ -19,6 +19,8 @@ public class knight : MonoBehaviour
     public enum dir { left, right };
     private dir _dir;
     Vector2 dir_vector = Vector2.right;
+    private float _cooldown { get { return anim.GetFloat("cooldown"); } set { anim.SetFloat("cooldown", Mathf.Abs(value)); } }
+
     public dir knight_dir 
     { get 
         {
@@ -86,6 +88,12 @@ public class knight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _cooldown-= Time.deltaTime;
         has_target = zone.colliders.Count > 0;
     }
+    public void onhit(int damage, Vector2 knockback)
+    {
+        rb.velocity = new Vector2(knockback.x * transform.localScale.x *-1, rb.velocity.y + knockback.y + 1);
+    }
 }
+ 

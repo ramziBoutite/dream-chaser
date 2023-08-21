@@ -46,7 +46,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.47101212, y: 0.0062981844}
+  m_Offset: {x: -0.23671418, y: 0.0062981844}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -57,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8758774, y: 2.2722251}
+  m_Size: {x: 2.3444734, y: 2.2722251}
   m_EdgeRadius: 0
 --- !u!114 &1257391710563199364
 MonoBehaviour:
@@ -280,7 +280,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2524380696679318603}
+        m_TargetAssemblyTypeName: knight, Assembly-CSharp
+        m_MethodName: onhit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _health: 100
   _is_alive: 1
   timer: 0.2
@@ -363,5 +375,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f473198a5ff00e40aee8d282f978f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knock_back: {x: 0, y: 0}
+  knock_back: {x: 1, y: 4}
   attack_damage: 10
