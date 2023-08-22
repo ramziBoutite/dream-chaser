@@ -49,8 +49,10 @@ public class damage : MonoBehaviour
     {
         if(is_alive)
         {
-            health += heal_amount;
-            event_class.char_healed.Invoke(gameObject, heal_amount);
+            float healed_amount = Mathf.Max(0, max_health - health); 
+            float actual_heal = Mathf.Min(healed_amount, heal_amount);
+            health += actual_heal;
+            event_class.char_healed.Invoke(gameObject, actual_heal);
         }
     }
     // Start is called before the first frame update

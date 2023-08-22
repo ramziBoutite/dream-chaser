@@ -37,7 +37,7 @@ public class uimanager : MonoBehaviour
         
         //_damagetxt.GetComponent<health_text>().startcolor = Color.green;
     }
-    public void onhealtxt (GameObject character, int health_to_show)
+    public void onhealtxt (GameObject character, float health_to_show)
     {
         TMP_Text _healtxt = healtxt.GetComponent<TMP_Text>();
         Vector3 spawnpos = (Camera.main.WorldToScreenPoint(character.transform.position));
