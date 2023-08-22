@@ -45,6 +45,14 @@ public class damage : MonoBehaviour
             is_hit = true;
         }
     }
+    public void heal(int heal_amount)
+    {
+        if(is_alive)
+        {
+            health += heal_amount;
+            event_class.char_healed.Invoke(gameObject, heal_amount);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
