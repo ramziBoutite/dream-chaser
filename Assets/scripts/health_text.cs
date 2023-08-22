@@ -26,12 +26,12 @@ public class health_text : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        alpha = startcolor.a*(1- timer/time_to_fade);
+        alpha = startcolor.a *(1- timer/time_to_fade);
         timer += Time.deltaTime;
         rectTransform.position += txt_speed * Time.deltaTime;
         if(timer < time_to_fade)
         {
-            textMeshProUGUI.color = new Color(startcolor.r,startcolor.g,startcolor.b, alpha);
+            textMeshProUGUI.color = new Color(startcolor.r,startcolor.g,startcolor.b,alpha);
         }
         else if (timer > time_to_fade)
         {

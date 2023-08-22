@@ -41,7 +41,7 @@ public class damage : MonoBehaviour
             health = health - damage;
             invincible = true;
             damageEvent?.Invoke(damage, knock_back);
-            event_class.char_damaged.Invoke(gameObject, damage);
+            event_class.char_damaged(gameObject, damage);
             is_hit = true;
         }
     }
