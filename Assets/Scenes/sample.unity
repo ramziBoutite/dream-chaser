@@ -19744,6 +19744,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: knight
       objectReference: {fileID: 0}
+    - target: {fileID: 2164385973232561045, guid: fe595345e68de1044bb9bd5699ed9bee, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5194409
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164385973232561045, guid: fe595345e68de1044bb9bd5699ed9bee, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.04079309
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: fe595345e68de1044bb9bd5699ed9bee, type: 3}

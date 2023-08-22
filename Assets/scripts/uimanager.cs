@@ -28,16 +28,24 @@ public class uimanager : MonoBehaviour
 
     public void ondamagetxt (GameObject character, int damage_to_show)
     {
+        TMP_Text _damagetxt = damagetxt.GetComponent<TMP_Text>();
+        
+        _damagetxt.text = damage_to_show.ToString();
         Vector3 spawnpos = Camera.main.WorldToScreenPoint(character.transform.position);
         Instantiate(damagetxt, spawnpos, Quaternion.identity, canvas.transform);
-        TMP_Text _damagetxt = damagetxt.GetComponent<TMP_Text>();
-        _damagetxt.text = damage_to_show.ToString();
+        
+        
+        //_damagetxt.GetComponent<health_text>().startcolor = Color.green;
     }
     public void onhealtxt (GameObject character, int health_to_show)
     {
+        TMP_Text _healtxt = healtxt.GetComponent<TMP_Text>();
         Vector3 spawnpos = (Camera.main.WorldToScreenPoint(character.transform.position));
-        TMP_Text _damagetxt = Instantiate(healtxt, spawnpos,Quaternion.identity,canvas.transform).GetComponent<TMP_Text>();
-        _damagetxt.text = health_to_show.ToString();
+        _healtxt.text = health_to_show.ToString();
+        Instantiate(healtxt, spawnpos, Quaternion.identity, canvas.transform);
+       
+        
+      //  _damagetxt.GetComponent<health_text>().startcolor = Color.red;
     }
 
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6961559195409895281}
   - component: {fileID: 4203492234187840768}
   m_Layer: 5
-  m_Name: Text (TMP) damage
+  m_Name: d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txt_speed: {x: 0, y: 75, z: 0}
-  time_to_fade: 1.01
+  time_to_fade: 3.65
+  startcolor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &4203492234187840768
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,12 +10,11 @@ public class health_text : MonoBehaviour
     RectTransform rectTransform;
     public float time_to_fade;
     private float timer = 0f;
-    private Color startcolor;
+    public Color   startcolor;
     private float alpha;
 
     private void Awake()
     {
-        startcolor = Color.red;
         rectTransform   = GetComponent<RectTransform>();
         textMeshProUGUI = GetComponent<TextMeshProUGUI>();
     }

@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f473198a5ff00e40aee8d282f978f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knock_back: {x: 1, y: 4}
+  knock_back: {x: 2, y: 0}
   attack_damage: 10
 --- !u!1 &6016237431287429191
 GameObject:
