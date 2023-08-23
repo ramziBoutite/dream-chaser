@@ -166,7 +166,7 @@ public class move : MonoBehaviour
     public void onhit(Vector2 knockback)
     {
         Debug.Log("invoked");
-        rb.velocity = new Vector2 (rb.velocity.x +knockback.x * transform.localScale.x * -1 , rb.velocity.y+knockback.y+1);
+        rb.velocity = new Vector2 (rb.velocity.x +knockback.x  , rb.velocity.y+knockback.y);
     }
     public void onbow(InputAction.CallbackContext context)
     {

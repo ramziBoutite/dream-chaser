@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class launcher : MonoBehaviour
 {
+    public Transform Transform;
 public GameObject launcherPrefab;
     public void launch_event ()
     {
         //Quaternion arrowVector = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -143);
-        Instantiate(launcherPrefab,transform.position,transform.rotation);
+       GameObject arrow = Instantiate(launcherPrefab,Transform.position,transform.rotation);
+        arrow.transform.localScale = new Vector3( arrow.transform.localScale.x *transform.localScale.x,arrow.transform.localScale.y,arrow.transform.localScale.z);
     }
 }

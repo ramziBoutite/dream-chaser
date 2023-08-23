@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2918967619699287099}
-  - component: {fileID: 1181662748226961526}
   m_Layer: 9
   m_Name: launcher
   m_TagString: Untagged
@@ -32,18 +31,6 @@ Transform:
   m_Father: {fileID: 2137394797962263105}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1181662748226961526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452937359336781911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c4ef3c531ae1741b746fbd3cc3b658, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2137394797962263135
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,6 +48,7 @@ GameObject:
   - component: {fileID: 297144147200008371}
   - component: {fileID: 2479383400851462970}
   - component: {fileID: 6117528215433696374}
+  - component: {fileID: 9048634129695689883}
   m_Layer: 9
   m_Name: player
   m_TagString: Untagged
@@ -431,6 +419,20 @@ MonoBehaviour:
   _health: 100
   _is_alive: 1
   timer: 1
+--- !u!114 &9048634129695689883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137394797962263135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c4ef3c531ae1741b746fbd3cc3b658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Transform: {fileID: 2918967619699287099}
+  launcherPrefab: {fileID: 9201487757986705917, guid: ecae34aba63e6d54d8b5d82387188f62, type: 3}
 --- !u!1 &4069440735228301027
 GameObject:
   m_ObjectHideFlags: 0

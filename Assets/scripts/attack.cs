@@ -11,6 +11,7 @@ public class attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Vector2 deliveredknock = transform.localScale.x > 0 ? knock_back : new Vector2(knock_back.x, knock_back.y);
         damage _damage = collision.GetComponent<damage>();
         if(_damage != null)
         {
