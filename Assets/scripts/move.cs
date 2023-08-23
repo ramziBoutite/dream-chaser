@@ -11,7 +11,7 @@ public class move : MonoBehaviour
     private bool _isrunning;
     private damage _damage;
     private Rigidbody2D rb;
-    public float walkSpeed = 7f,speed,runspeed = 10.5f,airspeed = 5f;
+    public float walkSpeed = 7f,speed,runspeed = 10.5f,airspeed = 5f, attack_speed =2f;
     Vector2 moveInp;
     Animator animator;
     raycasting raycasting;
@@ -73,9 +73,9 @@ public class move : MonoBehaviour
         //move speed
         if (raycasting.isgnd)
         {
-            if (ismoving)
+            if (ismoving && !animator.GetBool("gnd_attack") && !animator.GetBool("bow"))
             {
-                if (isrunning)
+                if (isrunning )
                 {
                     animator.SetBool("run", true);
                     speed = runspeed;
@@ -86,6 +86,9 @@ public class move : MonoBehaviour
                     speed = walkSpeed;
                 }
             }
+
+            else if (animator.GetBool("gnd_attack") ) { speed = attack_speed; }
+            else if (animator.GetBool("combo")) { speed = attack_speed; }
             else
             {
                 animator.SetBool("run", false);
@@ -160,8 +163,21 @@ public class move : MonoBehaviour
     {
         can_input = !can_input;
     }
-    public void onhit( int damage, Vector2 knockback)
+    public void onhit(Vector2 knockback)
     {
-        rb.velocity = new Vector2 (knockback.x * transform.localScale.x * -1,rb.velocity.y+knockback.y+1);
+        Debug.Log("invoked");
+        rb.velocity = new Vector2 (rb.velocity.x +knockback.x * transform.localScale.x * -1 , rb.velocity.y+knockback.y+1);
+    }
+    public void onbow(InputAction.CallbackContext context)
+    {
+        if (context.started && raycasting.isgnd)
+        {
+            
+                
+                animator.SetTrigger("bow");
+            
+        }
+ 
+
     }
 }

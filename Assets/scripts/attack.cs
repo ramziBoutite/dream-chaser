@@ -15,7 +15,7 @@ public class attack : MonoBehaviour
         if(_damage != null)
         {
             _damage.hit(attack_damage,knock_back);
-            
+            Debug.Log("hit called");
         }
     }
     // Start is called before the first frame update

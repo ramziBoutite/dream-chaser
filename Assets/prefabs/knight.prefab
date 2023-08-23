@@ -286,9 +286,9 @@ MonoBehaviour:
   damageEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4411228463163093202}
-        m_TargetAssemblyTypeName: damage, Assembly-CSharp
-        m_MethodName: hit
+      - m_Target: {fileID: 2524380696679318603}
+        m_TargetAssemblyTypeName: knight, Assembly-CSharp
+        m_MethodName: onhit
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -380,8 +380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f473198a5ff00e40aee8d282f978f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knock_back: {x: 4.6, y: 0}
-  attack_damage: 10
+  knock_back: {x: 2, y: 3}
+  attack_damage: 11
 --- !u!1 &6016237431287429191
 GameObject:
   m_ObjectHideFlags: 0

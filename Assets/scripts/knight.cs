@@ -60,12 +60,13 @@ public class knight : MonoBehaviour
         {
             Flip();
         }
-        if (canmove )
+        if (!canmove)
+            {
+                rb.velocity = new Vector2(Mathf.Epsilon, rb.velocity.y);
+            }
+        else if(! anim.GetBool("is_hit"))
         {
             rb.velocity = new Vector2(dir_vector.x * speed, rb.velocity.y);
-        }
-        else if(!canmove) {
-            rb.velocity = new Vector2(Mathf.Epsilon,rb.velocity.y);
         }
     }
 
@@ -94,11 +95,11 @@ public class knight : MonoBehaviour
         _cooldown-= Time.deltaTime;
         has_target = zone.colliders.Count > 0;
     }
-    public bool onhit(int damage, Vector2 knockback)
+    public void onhit (Vector2 knockback)
     {
        // anim.SetBool("canmove",false);
-        rb.velocity = new Vector2 ( knockback.x * transform.localScale.x *-1, rb.velocity.y + knockback.y );
-        return true;
+        rb.velocity = new Vector2 ( rb.velocity.x +knockback.x * transform.localScale.x * -1, rb.velocity.y + knockback.y );
+        
     }
     public void cliff_flip()
     {

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class damage : MonoBehaviour
 {
-    public UnityEvent<int,Vector2> damageEvent;
+    public UnityEvent<Vector2> damageEvent;
     Animator anim;
     private float _max_health=100;
     public float max_health
@@ -31,7 +31,6 @@ public class damage : MonoBehaviour
 
     private void Awake()
     {
-        
         anim = GetComponent<Animator>();
     }
     public void hit(int damage, Vector2 knock_back)
@@ -40,7 +39,8 @@ public class damage : MonoBehaviour
         {
             health = health - damage;
             invincible = true;
-            damageEvent?.Invoke(damage, knock_back);
+            damageEvent.Invoke(knock_back);
+            Debug.Log("try invoke");
             event_class.char_damaged(gameObject, damage);
             is_hit = true;
         }
