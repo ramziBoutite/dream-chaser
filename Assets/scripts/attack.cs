@@ -7,12 +7,15 @@ public class attack : MonoBehaviour
     public Vector2 knock_back;
 
     public int attack_damage = 10;
+   
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         damage _damage = collision.GetComponent<damage>();
         if(_damage != null)
         {
-            _damage.hit(attack_damage, knock_back);
+            _damage.hit(attack_damage,knock_back);
+            
         }
     }
     // Start is called before the first frame update

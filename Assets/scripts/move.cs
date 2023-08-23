@@ -16,6 +16,8 @@ public class move : MonoBehaviour
     Animator animator;
     raycasting raycasting;
     public float jump;
+    public bool can_input =true,inputed=false;
+    public static move instance;
 
     public bool ismoving { get
         {
@@ -37,6 +39,7 @@ public class move : MonoBehaviour
     
     private void Awake()
     {
+        instance = this; 
         _damage = GetComponent<damage>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -139,10 +142,23 @@ public class move : MonoBehaviour
     }
     public void onattack (InputAction.CallbackContext context)
     {
-        if(context.started && raycasting.isgnd)
+        if  (context.started && raycasting.isgnd)
         {
-            animator.SetTrigger("gnd_attack");
+            if (can_input)
+            {
+                inputed = true;
+                can_input = false;
+                animator.SetTrigger("gnd_attack");
+            }
         }
+        else if(context.canceled){
+            can_input = true; inputed=false;
+        }
+        
+    }
+    public void input_manager()
+    {
+        can_input = !can_input;
     }
     public void onhit( int damage, Vector2 knockback)
     {

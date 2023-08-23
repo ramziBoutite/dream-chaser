@@ -15,11 +15,13 @@ public class knight : MonoBehaviour
     public detection_zone cliff;
     bool _has_target;
     public bool has_target { get { return _has_target; } set { _has_target = value; anim.SetBool("has_target",value); } }
-    public bool canmove { get { return anim.GetBool("canmove"); }  }
+    public bool canmove { get { return anim.GetBool("canmove"); }   }
 
     public enum dir { left, right };
     private dir _dir;
     Vector2 dir_vector = Vector2.right;
+   
+
     private float _cooldown { get { return anim.GetFloat("cooldown"); } set { anim.SetFloat("cooldown", Mathf.Abs(value)); } }
 
     public dir knight_dir 
@@ -58,11 +60,11 @@ public class knight : MonoBehaviour
         {
             Flip();
         }
-        if (canmove)
+        if (canmove )
         {
             rb.velocity = new Vector2(dir_vector.x * speed, rb.velocity.y);
         }
-        else {
+        else if(!canmove) {
             rb.velocity = new Vector2(Mathf.Epsilon,rb.velocity.y);
         }
     }
@@ -92,9 +94,11 @@ public class knight : MonoBehaviour
         _cooldown-= Time.deltaTime;
         has_target = zone.colliders.Count > 0;
     }
-    public void onhit(int damage, Vector2 knockback)
+    public bool onhit(int damage, Vector2 knockback)
     {
-        rb.velocity = new Vector2(knockback.x * transform.localScale.x *-1, rb.velocity.y + knockback.y + 1);
+       // anim.SetBool("canmove",false);
+        rb.velocity = new Vector2 ( knockback.x * transform.localScale.x *-1, rb.velocity.y + knockback.y );
+        return true;
     }
     public void cliff_flip()
     {
