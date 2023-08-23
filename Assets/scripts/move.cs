@@ -145,7 +145,7 @@ public class move : MonoBehaviour
     }
     public void onattack (InputAction.CallbackContext context)
     {
-        if  (context.started && raycasting.isgnd)
+        if  (context.started )
         {
             if (can_input)
             {
