@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class damage : MonoBehaviour
 {
     public UnityEvent<Vector2> damageEvent;
+    public UnityEvent<float,float> damage_for_health_bar;
     Animator anim;
     private float _max_health=100;
     public float max_health
@@ -15,7 +16,7 @@ public class damage : MonoBehaviour
     }
     [SerializeField]
     private float _health = 100;
-    public float health { get { return _health; } set { _health = value; if (_health <= 0f) { is_alive = false; } } }
+    public float health { get { return _health; } set { _health = value; damage_for_health_bar.Invoke(health, max_health); if (_health <= 0f) { is_alive = false; } } }
     public bool is_hit { get { return anim.GetBool("is_hit"); } set { anim.SetBool("is_hit",value); } }
     [SerializeField] private bool _is_alive = true;
     private bool invincible;
