@@ -7,6 +7,8 @@ using Newtonsoft.Json.Linq;
 
 public class move : MonoBehaviour
 {
+    public AudioSource jumpSound;public AudioSource run;public AudioSource hit;
+    public AudioSource sw1; public AudioSource sw2; public AudioSource sw3; public AudioSource asw1; public AudioSource asw2;
     private bool _ismoving = false;
     private bool _isrunning;
     private damage _damage;
@@ -59,6 +61,7 @@ public class move : MonoBehaviour
     private void FixedUpdate()
     {
         // basic move
+
         if(!_damage.is_hit)
         {
             if (raycasting.isgnd && animator.GetBool("canmove"))
@@ -66,12 +69,14 @@ public class move : MonoBehaviour
             else if (!raycasting.isgnd && !raycasting.isonwall)
             { rb.velocity = new Vector2(moveInp.x * speed, rb.velocity.y); }
             else if (!animator.GetBool("canmove"))
-            { rb.velocity = Vector2.zero; }
+            { rb.velocity = new Vector2(0, rb.velocity.y); }
             else { rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y); }
         }
-        
+        if (!animator.GetBool("canmove"))
+        { rb.velocity = new Vector2(0,rb.velocity.y); }
+
         //move speed
-        if (raycasting.isgnd)
+        if (raycasting.isgnd && animator.GetBool("canmove"))
         {
             if (ismoving && !animator.GetBool("gnd_attack") && !animator.GetBool("bow"))
             {
@@ -97,6 +102,7 @@ public class move : MonoBehaviour
         }
         else { speed = airspeed; }
 
+        //death note
 
         //flip
         if (rb.velocity.x == 0f) { }
@@ -128,9 +134,11 @@ public class move : MonoBehaviour
         if (context.started && ismoving && raycasting.isgnd && animator.GetBool("canmove"))
         {
             isrunning = true;
+            run.Play();
         }
         else if (context.canceled)
         {
+            run.Stop();
             isrunning = false;
             animator.SetBool("run", false);
         }
@@ -139,6 +147,7 @@ public class move : MonoBehaviour
     {
         if(context.started && raycasting.isgnd && animator.GetBool("canmove"))
         {
+            jumpSound.Play();
             rb.velocity =new Vector2(rb.velocity.x,jump);
             animator.SetTrigger("jump");
         }
@@ -157,7 +166,32 @@ public class move : MonoBehaviour
         else if(context.canceled){
             can_input = true; inputed=false;
         }
-        
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("p_attack1"))
+        {
+            sw1.Play();
+            //Debug.Log("Jumping");
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("p_attack-3"))
+        {
+            sw2.Play();
+            //Debug.Log("Jumping");
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("p_attack-2"))
+        {
+            sw3.Play();
+            //Debug.Log("Jumping");
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("air_attack1"))
+        {
+            asw1.Play();
+            //Debug.Log("Jumping");
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("air_attack2"))
+        {
+            asw2.Play();
+            //Debug.Log("Jumping");
+        }
+
     }
     public void input_manager()
     {
@@ -165,6 +199,7 @@ public class move : MonoBehaviour
     }
     public void onhit(Vector2 knockback)
     {
+        hit.Play();
         Debug.Log("invoked");
         rb.velocity = new Vector2 (rb.velocity.x +knockback.x  , rb.velocity.y+knockback.y);
     }
