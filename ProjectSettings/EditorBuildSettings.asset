@@ -8,5 +8,26 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/sample.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 27b3a383aa469a34cae31875e6705541
+  - enabled: 1
+    path: Assets/Scenes/Village.unity
+    guid: e067544b1ebb41f46aae09284e76259d
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: f96254d4f36044c46902005eb80c12f9
+  - enabled: 1
+    path: Assets/Scenes/Castle.unity
+    guid: 38c82454ca1537d4f9e030b3db2d031e
+  - enabled: 1
+    path: Assets/Scenes/DreamWorld.unity
+    guid: a831fa0d25b5ed145b4159503b485fb3
+  - enabled: 1
+    path: Assets/Scenes/GameCompleted.unity
+    guid: de7719dd32f2886418d9e9f28cd7c28e
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: e555e52f6946fce4ab828448aa881705
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 365b66b994dcf294d80c3701ce725827, type: 2}
